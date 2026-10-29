@@ -1,0 +1,21 @@
+# Foundry
+out/
+cache/
+broadcast/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+
+# Editores / agentes
+.idea/
+.vscode/
+.claude/
+
+# frontend/.env solo contiene valores locales de Anvil (cuentas de prueba públicas): se versiona a propósito
+!frontend/.env

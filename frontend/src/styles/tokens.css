@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Rúbrica — tokens. Único archivo con valores crudos (colores, medidas).
+   Modo claro = Papel · modo oscuro = Blueprint, vía light-dark().
+   ========================================================================== */
+:root {
+  color-scheme: light dark;
+
+  /* --- crudos --------------------------------------------------------- */
+  --raw-ink: #233558;
+  --raw-ink-soft: #3d507a;
+  --raw-paper: #f7f2e7;
+  --raw-paper-2: #efe8d8;
+  --raw-chalk: #dce6f5;
+  --raw-chalk-soft: #a9bcd9;
+  --raw-blueprint: #16263f;
+  --raw-blueprint-2: #1d3152;
+  --raw-seal: #b3362c;
+  --raw-seal-dark: #e06a5e;
+
+  /* --- semánticos ----------------------------------------------------- */
+  --ink: light-dark(var(--raw-ink), var(--raw-chalk));
+  --ink-soft: light-dark(var(--raw-ink-soft), var(--raw-chalk-soft));
+  --paper: light-dark(var(--raw-paper), var(--raw-blueprint));
+  --paper-2: light-dark(var(--raw-paper-2), var(--raw-blueprint-2));
+  --seal: light-dark(var(--raw-seal), var(--raw-seal-dark));
+  --focus: var(--ink);
+
+  /* --- tipografía ----------------------------------------------------- */
+  --font-display: "Caveat", "Segoe Script", "Bradley Hand", cursive;
+  --font-body: "Patrick Hand", "Comic Neue", "Segoe Print", cursive;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 24px;
+  --fs-2xl: 36px;
+  --fs-hero: 56px;
+  --lh-body: 1.5;
+  --lh-display: 1.1;
+
+  /* --- espaciado (escala de 4) ---------------------------------------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --container: 880px;
+
+  /* --- trazo: la firma del estilo ------------------------------------- */
+  --stroke: 2px;
+  --wobble: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --wobble-2: 15px 225px 15px 255px / 255px 15px 225px 15px;
+  --wobble-soft: 8px 12px 10px 14px / 12px 8px 14px 10px;
+  --shadow-sketch: 3px 3px 0 0 var(--ink-soft);
+  --shadow-sketch-lg: 4px 4px 0 0 var(--ink-soft);
+  --shadow-sketch-sm: 1px 1px 0 0 var(--ink-soft);
+  --radius-soft: 12px;
+
+  /* --- motion (0 por defecto; se enciende si no se pide menos movimiento) */
+  --t-fast: 0ms;
+  --t-pop: 0ms;
+  --lift: 0px;
+
+  /* --- textura: grano de papel (claro) / cuadrícula blueprint (oscuro).
+         light-dark() solo acepta colores, por eso la imagen se cambia con
+         la media query de abajo. ----------------------------------------- */
+  --texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.045'/%3E%3C/svg%3E");
+  --texture-size: auto;
+
+  /* --- detalles nativos tematizados ----------------------------------- */
+  accent-color: var(--ink);
+  scrollbar-color: var(--ink-soft) var(--paper-2);
+  scrollbar-width: thin; /* necesario para que macOS pinte el color */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    --t-fast: 120ms ease-out;
+    --t-pop: 240ms cubic-bezier(0.2, 1.4, 0.4, 1);
+    --lift: 1px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --texture:
+      linear-gradient(var(--paper-2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-2) 1px, transparent 1px);
+    --texture-size: 24px 24px;
+  }
+}

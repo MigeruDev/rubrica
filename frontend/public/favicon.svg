@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="4" y="4" width="56" height="56" rx="14" ry="10" fill="#f7f2e7" stroke="#233558" stroke-width="4"/>
+  <text x="32" y="44" text-anchor="middle" font-family="Caveat, 'Segoe Script', cursive" font-size="40" font-weight="700" fill="#233558">R</text>
+  <path d="M14 50 C 24 44, 40 56, 50 48" fill="none" stroke="#b3362c" stroke-width="3" stroke-linecap="round"/>
+</svg>

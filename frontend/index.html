@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Rúbrica: certificados académicos trazados en cadena. Verifica un documento contra el registro on-chain sin subirlo a ningún servidor." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <title>Rúbrica · Certificados trazados en cadena</title>
+  </head>
+  <body>
+    <!-- Filtro de trazo rugoso compartido por .rough (solo elementos estáticos y grandes) -->
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+      <filter id="rough">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="3" />
+      </filter>
+    </svg>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
